@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var search: String = ""
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            TextField("Enter brewery search here", text: $search)
+                .onChange(of: search) { oldValue, newValue in
+                    print(newValue)
+                }
         }
         .padding()
     }
